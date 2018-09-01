@@ -1,8 +1,8 @@
 const friendsArr = [
     {
-        name: "Chris",
-        photo: "www.google.com",
-        scores: [
+        "name": "Chris",
+        "photo": "www.google.com",
+        "scores": [
             1,
             2,
             3,
