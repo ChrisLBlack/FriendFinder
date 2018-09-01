@@ -1,9 +1,15 @@
-app.get("/"), (req, res) => {
-    res.sendFile(path.join(__dirname, "home.html"));
-    console.log("default")
-};
+const path = require('path');
 
-app.get("/survey"), (req, res) => {
-    res.sendFile(path.join(__dirname, "survey.html"));
-    console.log("survey")
+module.exports = (app) => {
+
+    app.use((req, res) => {
+        res.sendFile(path.join(__dirname, "../public/home.html"));
+        console.log("default")
+    });
+
+    app.get("/survey"), (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/survey.html"));
+        console.log("survey")
+    };
+
 };
