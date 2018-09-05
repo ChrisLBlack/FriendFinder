@@ -261,9 +261,8 @@
 
         const currentURL = window.location.origin;
         // AJAX post the data to the friends API.
-        $.post(`${currentURL}/api/friends`, friendsOb, ()=> {
+        $.post(`${currentURL}/api/friends`, friendsOb, () => {
           console.log(currentURL);
-
         });
 
       });
