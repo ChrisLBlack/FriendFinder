@@ -7,9 +7,9 @@ module.exports = function (app) {
   });
 
   app.post("/api/friends", function (req, res) {
-    //pushing user input to database (friends.js)
     const newData = req.body;
-  //   // console.log(newData.scores);
+
+    //   // console.log(newData.scores);
 
     //matching friends
     let matchName = "";
@@ -18,20 +18,21 @@ module.exports = function (app) {
 
     for (let i = 0; i < friendsData.length; i++) {
       let diff = 0;
-      
+
       for (let check in newData.scores) {
         let v = parseInt(friendsData[i].scores);
         let s = parseInt(newData.scores[check]);
         diff = Math.abs(v - s);
       };
-      
-      if (diff < total){
+
+      if (diff < total) {
         total = diff;
         matchName = friendsData[i].name;
         matchImage = friendsData[i].photo;
       }
     }
-
+    res.json({ matchName: matchName, matchImage: matchImage });
+    //pushing user input to database (friends.js)
     friendsData.push(newData);
   });
 };
